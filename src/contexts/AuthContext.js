@@ -3,10 +3,11 @@ import { useHistory } from "react-router-dom";
 import { auth } from "firebase";
 
 const AuthContext = React.createContext()
-
+/* A function to grab the context later */
 export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({children}) => {
+    /* setting the state */
     const [loading, setLoading] = useState(true)
     const [usr, setUser] = useState({})
     const history = useHistory()
@@ -18,6 +19,8 @@ export const AuthProvider = ({children}) => {
         /*using react router dom to push application*/
             history.push('/chats')
         })
+
+
     }, [user, history])
 const value = {user}
 
